@@ -1,0 +1,64 @@
+{% extends 'users/userbase.html'%}
+{%load static%}
+{%block contents%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Classification & Age Estimation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            margin-top: 20px;
+        }
+        img {
+            max-width: 80%;
+            height: auto;
+            border: 2px solid #333;
+            border-radius: 10px;
+            margin-top: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: auto;
+        }
+        p {
+            font-size: 18px;
+            color: #444;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Brain Tumor Classification & Age Estimation</h1>
+        
+        <h2>Confusion Matrix</h2>
+        <img src="data:image/png;base64,{{ cm_image }}" alt="Confusion Matrix">
+        
+        <h2>Age Estimation Distribution</h2>
+        <img src="data:image/png;base64,{{ age_image }}" alt="Age Estimation Distribution">
+        
+        <h2>Model Evaluation</h2>
+        <p><strong>Classification Accuracy:</strong> {{ classification_accuracy }}</p>
+        <p><strong>Age Estimation MAE:</strong> {{ age_mae }}</p>
+    </div>
+</body>
+</html>
+{%endblock%}

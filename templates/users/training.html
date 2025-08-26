@@ -1,0 +1,45 @@
+{% extends 'users/userbase.html' %}
+{% load static %}
+
+{% block contents %}
+<section class="about full-screen d-flex justify-content-center align-items-center" id="about" style="min-height: 100vh;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Centered Card with Adjusted Position -->
+            <div class="col-lg-8 col-md-10 col-12">
+                <div class="card shadow-lg" style="margin-top: -100px;"> <!-- Increase the negative margin to move the box up -->
+                    <div class="card-body text-center">
+                        <h4 class="card-title mb-4" style="color: red;">Model Accuracy</h4> <!-- Title in red color -->
+
+                        <!-- Table for Accuracy Display -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered mx-auto w-75">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"><strong>Metric</strong></th>
+                                        <th scope="col"><strong>Value</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Accuracy</strong></td>
+                                        <td>{{ accuracy }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Train Accuracy</strong></td>
+                                        <td>{{ train_acc }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Test Accuracy</strong></td>
+                                        <td>{{ test_acc }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

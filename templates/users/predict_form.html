@@ -1,0 +1,125 @@
+{% extends 'users/userbase.html' %}
+{% load static %}
+
+{% block contents %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .form-box {
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-box h2 {
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .form-group label {
+            font-weight: 600;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn-block {
+            background-color: #28a745; /* Green background */
+            color: #ffffff; /* White text */
+            font-weight: bold;
+            font-size: 1.2rem; /* Larger font size */
+            padding: 15px 20px; /* Add adequate padding */
+            border: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: block; /* Ensure it takes the full width of the container */
+            margin: 0 auto; /* Center the button */
+            overflow: visible; /* Prevent clipping */
+        }
+
+        .btn-block:hover {
+            background-color: #218838; /* Darker green on hover */
+            color: #ffffff; /* Ensure text stays white */
+            transform: scale(1.1); /* Slight zoom effect */
+        }
+
+        body {
+            background: linear-gradient(45deg, #ff7f50, #1e90ff, #32cd32);
+        }
+
+        .container {
+            padding-top: 50px;
+        }
+
+        .prediction-result {
+            font-weight: bold;
+            color: red;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="form-box">
+        <h2 class="text-center">Enter Patient Details for Alzheimer’s Prediction</h2>
+        {% if prediction %}
+        <div class="prediction-result">
+            {{ prediction }}
+        </div>
+        {% endif %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" class="form-control" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="cholesterol_levels">Cholesterol Levels</label>
+                <input type="number" class="form-control" id="cholesterol_levels" name="cholesterol_levels" required>
+            </div>
+            <div class="form-group">
+                <label for="chest_discomfort">Chest Discomfort</label>
+                <select class="form-control" id="chest_discomfort" name="chest_discomfort" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="other_health_factor_1">Other Health Factor 1</label>
+                <input type="number" class="form-control" id="other_health_factor_1" name="other_health_factor_1" step="any" required>
+            </div>
+            <div class="form-group">
+                <label for="other_health_factor_2">Other Health Factor 2</label>
+                <input type="number" class="form-control" id="other_health_factor_2" name="other_health_factor_2" step="any" required>
+            </div>
+            <div class="btn-container">
+                <button type="submit" class="btn btn-block">Predict</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+{% endblock %}

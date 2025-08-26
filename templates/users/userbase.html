@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>UserHOME</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+        <link href="{% static 'img/favicon.ico' %}" rel="icon">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/owlcarousel/owl.carousel.min.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        
+        <!-- Background Animation CSS -->
+        <style>
+            /* Create a moving gradient background effect */
+            body {
+                background: linear-gradient(-45deg, #00c6ff, #0072ff, #00ff8c, #00d2ff);
+                background-size: 400% 400%;
+                animation: gradientAnimation 10s ease infinite;
+                height: 100vh;
+                background-attachment: fixed;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+
+            @keyframes gradientAnimation {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            .navbar {
+                z-index: 9999;
+            }
+
+            .page-header {
+                padding: 50px 0;
+                color: white;
+            }
+
+            .page-header h2 {
+                font-size: 36px;
+                font-weight: bold;
+            }
+
+            /* Style the brain icons */
+            .brain-icon {
+                font-size: 40px;
+                color: #ff6347; /* Tomato color */
+                transition: transform 0.3s ease;
+            }
+
+            .brain-icon:hover {
+                transform: scale(1.2);
+            }
+
+            /* Footer fix to the bottom */
+            footer {
+                margin-top: auto;
+                background-color: #343a40;
+                color: white;
+                padding: 20px 0;
+            }
+
+            footer p {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <div class="navbar navbar-expand-lg bg-dark navbar-dark" style="color:rgb(166, 9, 9);">
+            <div class="container-fluid">
+                <a href="index.html" class="navbar-brand"> <span style="color:rgb(173, 101, 23);">Brain Age & Disease Detection Using MRI Images</span></a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="{% url 'UserHome' %}" class="nav-item nav-link">Home</a>
+                        <a href="/Training" class="nav-item nav-link">Training</a>
+                        <a href="{% url 'training_brain' %}" class="nav-item nav-link">Training Brain</a>
+                        <a href="{% url 'predict_brain' %}" class="nav-item nav-link">Predict Brain</a>
+                        <a href="{% url 'index' %}" class="nav-item nav-link">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <br><center><h2 style="color:rgb(129, 17, 17);">Brain Age And Disease Detection</h2></center></br>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <!-- Brain Icon Section -->
+                    <div class="text-center">
+                        <i class="fas fa-brain brain-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Block -->
+        {% block contents %}
+        {% endblock %}
+
+        <!-- Footer -->
+
+
+        <br><br><br><br><br><br><br><br><br>
+
+        <!-- JS Scripts -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+        <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+        <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+        <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+        <script src="{% static 'mail/contact.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>

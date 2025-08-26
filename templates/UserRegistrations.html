@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+
+<section class="d-flex align-items-center justify-content-center" 
+         style="min-height: 100vh; 
+                background-image: url('https://live.staticflickr.com/4519/38730047881_2201c77dd9_b.jpg'); 
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 100%;">
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 col-lg-5" align="center"> <!-- Increased width here -->
+                <div class="card p-4" style="background-color: rgba(255, 255, 255, 0.85); border-radius: 8px; width: 100%; box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);"> <!-- Increased padding and box shadow for a larger feel -->
+                    <form action="{% url 'UserRegisterActions' %}" method="POST" style="width:100%">
+                        <h2 class="h5 text-center mb-3" style="font-weight:bold; color:brown;">User Register Form</h2> <!-- Reduced heading size and margin -->
+                        {% csrf_token %}
+                        <div class="form-group mb-3">
+                            <label class="small font-weight-bold">User Name</label> <!-- Added font-weight-bold -->
+                            {{ form.name }}
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="small font-weight-bold">Login ID</label> <!-- Added font-weight-bold -->
+                            {{ form.loginid }}
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="small font-weight-bold">Password</label> <!-- Added font-weight-bold -->
+                            {{ form.password }}
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="small font-weight-bold">Mobile</label> <!-- Added font-weight-bold -->
+                            {{ form.mobile }}
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="small font-weight-bold">Email</label> <!-- Added font-weight-bold -->
+                            {{ form.email }}
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="small font-weight-bold">Locality</label> <!-- Added font-weight-bold -->
+                            {{ form.locality }}
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="small font-weight-bold">Address</label> <!-- Added font-weight-bold -->
+                            {{ form.address }}
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="small font-weight-bold">City</label> <!-- Added font-weight-bold -->
+                            {{ form.city }}
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="small font-weight-bold">State</label> <!-- Added font-weight-bold -->
+                            {{ form.state }}
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="small font-weight-bold">Status</label> <!-- Added font-weight-bold -->
+                            {{ form.status }}
+                        </div>
+                        <div class="text-center mt-3">
+                            <button class="btn btn-primary text-white py-2 px-5" type="submit">Register</button> <!-- Increased button padding -->
+                        </div>
+                        {% if messages %}
+                            <div class="mt-3 text-danger">
+                                {% for message in messages %}
+                                    <p class="small">{{ message }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
